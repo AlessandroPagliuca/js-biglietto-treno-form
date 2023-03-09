@@ -22,15 +22,6 @@ const discountOverSixtyFive (*0.4)
 let priceFinal in output
 */
 
-//const numberKm in input 
-let numberKm = 0;
-
-//const passenger in input 
-let passengerAge = 0;
-
-//let priceTicket
-let priceTicket = numberKm * 0.21;
-
 //const discountUnderage
 const discountUnderage = 18;
 
@@ -41,13 +32,27 @@ const discountOverSixtyFive = 65;
 let messageDiscount;
 
 //Apply discount for Underage and  OverSixtyFive
-let buyTicket = document.getElementById('buyTicket');
-buyTicket.addEventListener('click', function(){
-   /* if(!isNaN(numberKm) && !isNaN(passengerAge)){
-        if(passengerAge < discountUnderage){
+
+let numberKm = ticket.querySelector('input[name="km"]');
+
+
+let passengerAge = ticket.querySelector('input[name="age"]');
+
+let btnCalc = document.getElementById('btnCalc');
+
+
+
+btnCalc.addEventListener('click', function(){
+    let km = numberKm.value;
+    let age = passengerAge.value;
+    let priceTicket = 0;
+
+    if(!isNaN(km) && !isNaN(age)){
+        priceTicket = km * 0.21;
+        if(age < discountUnderage){
             priceTicket *= 0.2;
             messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
-        } else if(passengerAge >= discountOverSixtyFive){
+        } else if(age >= discountOverSixtyFive){
             priceTicket *= 0.4;
             messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else{
@@ -57,17 +62,18 @@ buyTicket.addEventListener('click', function(){
     } else{
         messageDiscount = "Invalid data entered, please try again";
     }
-*/
-console.log(numberKm, passengerAge);
+
+console.log(numberKm.value, passengerAge.value);
+//print the priceFinal in human format with two decimals
+
+let priceFinal = messageDiscount;
+console.log(priceFinal);
+
+document.getElementById("ticket").innerHTML = priceFinal;
+
 }); 
 
 
 
 
 
-//print the priceFinal in human format with two decimals
-
-let priceFinal = messageDiscount;
-console.log(priceFinal);
-
-//document.getElementById("ticket").innerHTML = priceFinal;
