@@ -41,14 +41,19 @@ btnCalc.addEventListener('click', function(){
     let km = numberKm.value;
     let age = passengerAge.value;
     let priceTicket = 0;
+    let discount = 0;
 
     if(!isNaN(km) && !isNaN(age)){
         priceTicket = km * 0.21;
         if(age < discountUnderage){
-            priceTicket *= 0.2;
+            discount = priceTicket * 0.2;
+            priceTicket -= discount;  
+
             messageDiscount = 'The discount has been applied to your ticket,' + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else if(age >= discountOverSixtyFive){
-            priceTicket *= 0.4;
+            discount = priceTicket * 0.4;
+            priceTicket -= discount;  
+
             messageDiscount = 'The discount has been applied to your ticket,' + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else{
             messageDiscount = 'No discount has been applied to your ticket,' + ' ' + priceTicket.toFixed(2) + '€';
