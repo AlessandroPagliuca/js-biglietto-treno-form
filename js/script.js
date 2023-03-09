@@ -47,14 +47,16 @@ btnCalc.addEventListener('click', function(){
         priceTicket = km * 0.21;
         if(age < discountUnderage){
             discount = priceTicket * 0.2;
+            discount = discount.toFixed(2);
             priceTicket -= discount;  
 
-            messageDiscount = 'The discount has been applied to your ticket,' + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+            messageDiscount = `The discount (${discount}) has been applied to your ticket,` + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else if(age >= discountOverSixtyFive){
             discount = priceTicket * 0.4;
+            discount = discount.toFixed(2);
             priceTicket -= discount;  
 
-            messageDiscount = 'The discount has been applied to your ticket,' + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+            messageDiscount = `The discount (${discount}) has been applied to your ticket,` + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else{
             messageDiscount = 'No discount has been applied to your ticket,' + ' ' + priceTicket.toFixed(2) + '€';
         }
