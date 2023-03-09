@@ -69,11 +69,6 @@ console.log(numberKm.value, passengerAge.value);
 let priceFinal = messageDiscount;
 console.log(priceFinal);
 
-document.getElementById("ticket").innerHTML = priceFinal;
+document.getElementById("buyTicket").innerHTML = priceFinal;
 
 }); 
-
-
-
-
-
