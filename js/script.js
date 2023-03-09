@@ -36,6 +36,7 @@ let messageDiscount;
 let numberKm = ticket.querySelector('input[name="km"]');
 let passengerAge = ticket.querySelector('input[name="age"]');
 let btnCalc = document.getElementById('btnCalc');
+let firstClick = true;
 
 btnCalc.addEventListener('click', function(){
     let km = numberKm.value;
@@ -43,7 +44,7 @@ btnCalc.addEventListener('click', function(){
     let priceTicket = 0;
     let discount = 0;
 
-    if(!isNaN(km) && !isNaN(age)){
+    if(!isNaN(km) && km > 0 && !isNaN(age) && age > 0){
         priceTicket = km * 0.21;
         if(age < discountUnderage){
             discount = priceTicket * 0.2;
@@ -65,17 +66,23 @@ btnCalc.addEventListener('click', function(){
         messageDiscount = "Invalid data entered, please try again";
     }
 
-console.log(numberKm.value, passengerAge.value);
-//print the priceFinal in human format with two decimals
-console.log(messageDiscount);
+    console.log(numberKm.value, passengerAge.value);
+    //print the priceFinal in human format with two decimals
+    console.log(messageDiscount);
+    let buyTicket = document.getElementById("buyTicket");
 
-document.getElementById("buyTicket").innerHTML = messageDiscount;
-
+    buyTicket.innerHTML= messageDiscount;
+    if(firstClick)
+    buyTicket.classList.remove("toggle");
+    firstClick = false;
 }); 
 
 btnReset.addEventListener('click', function(){
     numberKm.value = '';
     passengerAge.value = '';
     document.getElementById("buyTicket").innerHTML = '';
+    if(!firstClick)
+    buyTicket.classList.add("toggle");
+    firstClick = true;    
 
 });
