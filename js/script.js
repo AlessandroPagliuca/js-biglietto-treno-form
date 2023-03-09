@@ -34,13 +34,8 @@ let messageDiscount;
 //Apply discount for Underage and  OverSixtyFive
 
 let numberKm = ticket.querySelector('input[name="km"]');
-
-
 let passengerAge = ticket.querySelector('input[name="age"]');
-
 let btnCalc = document.getElementById('btnCalc');
-
-
 
 btnCalc.addEventListener('click', function(){
     let km = numberKm.value;
@@ -51,10 +46,10 @@ btnCalc.addEventListener('click', function(){
         priceTicket = km * 0.21;
         if(age < discountUnderage){
             priceTicket *= 0.2;
-            messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+            messageDiscount = 'The discount has been applied to your ticket,' + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else if(age >= discountOverSixtyFive){
             priceTicket *= 0.4;
-            messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+            messageDiscount = 'The discount has been applied to your ticket,' + ' thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
         } else{
             messageDiscount = 'No discount has been applied to your ticket,' + ' ' + priceTicket.toFixed(2) + '€';
         }
@@ -65,10 +60,15 @@ btnCalc.addEventListener('click', function(){
 
 console.log(numberKm.value, passengerAge.value);
 //print the priceFinal in human format with two decimals
+console.log(messageDiscount);
 
-let priceFinal = messageDiscount;
-console.log(priceFinal);
-
-document.getElementById("buyTicket").innerHTML = priceFinal;
+document.getElementById("buyTicket").innerHTML = messageDiscount;
 
 }); 
+
+btnReset.addEventListener('click', function(){
+    numberKm.value = '';
+    passengerAge.value = '';
+    document.getElementById("buyTicket").innerHTML = '';
+
+});
