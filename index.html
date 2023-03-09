@@ -9,15 +9,19 @@
     <title>calcolo del prezzo del biglietto del treno</title>
 </head>
 <body>
-    <div class="m-auto w-50 mt-5">
-        <div id="ticket" class="card  ">
-            <input type="number" name="km" id="numberkm" placeholder="Enter the distance to travel in km">
-            <input type="number" name="age" id="passengerAge" placeholder="Please enter your age">
+    <div class="m-auto c92-box mt-5 debug">
+        <h2 class="pb-3 text-white">Calculate the price of your ticket</h2>
+        <div id="ticket" class=" d-flex justify-content-between">
+            <input type="number" name="km" id="numberkm" class="w-50 mx-2"  placeholder="Enter the distance to travel in km">
+            <input type="number" name="age" id="passengerAge" class="w-50" placeholder="Please enter your age">
         </div>
-        <button id="btnCalc" class="btn btn-primary btn-sm">Calculate</button>
-        <button id="btnReset" class="btn btn-secondary btn-sm">Reset</button>
-        <div id="buyTicket" class="card toggle m-auto w-50 text-center mt-5"></div>
+        <div class="mt-4 mx-2">
+            <button id="btnCalc" class="btn btn-outline-light">Calculate</button>
+            <button id="btnReset" class="btn btn-outline-warning mx-2">Reset</button>    
+        </div>
     </div>
+    <div id="buyTicket" class="card toggle c92-bg m-auto w-25 text-center mt-5"></div>
+
     <script src="./js/script.js"></script>
 </body>
 </html>

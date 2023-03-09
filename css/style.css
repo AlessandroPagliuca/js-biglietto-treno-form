@@ -1,3 +1,22 @@
+:root{
+    --c92-bg:#b91450;
+}
+
 .toggle{
     display: none;
+}
+
+.debug{
+    border: 1px solid black;
+}
+.c92-box{
+    width: 55%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--c92-bg);
+}
+.c92-bg{
+    background-color: var(--c92-bg);
+    color: white;
+    padding: 10px;
 }
