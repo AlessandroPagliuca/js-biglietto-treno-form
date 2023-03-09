@@ -14,19 +14,19 @@ Solo una volta che il milestone 1 sarà completo e funzionante allora realizzere
 Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo). Questo richiederà un minimo di ricerca.
 
 
-const numberKm
-const passengerAge
+let numberKm
+let passengerAge
 let priceTicket (0.21€)
 const discountUnderage  (*0.2)
 const discountOverSixtyFive (*0.4)
 let priceFinal in output
 */
 
-//const numberKm in input prompt
-const numberKm = prompt("Enter the distance to travel in km");
+//const numberKm in input 
+let numberKm = 0;
 
-//const passenger in input prompt
-const passengerAge= prompt("Please enter your age");
+//const passenger in input 
+let passengerAge = 0;
 
 //let priceTicket
 let priceTicket = numberKm * 0.21;
@@ -41,25 +41,33 @@ const discountOverSixtyFive = 65;
 let messageDiscount;
 
 //Apply discount for Underage and  OverSixtyFive
-if(!isNaN(numberKm) && !isNaN(passengerAge)){
-    if(passengerAge < discountUnderage){
-        priceTicket *= 0.2;
-        messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
-    } else if(passengerAge >= discountOverSixtyFive){
-        priceTicket *= 0.4;
-        messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+let buyTicket = document.getElementById('buyTicket');
+buyTicket.addEventListener('click', function(){
+   /* if(!isNaN(numberKm) && !isNaN(passengerAge)){
+        if(passengerAge < discountUnderage){
+            priceTicket *= 0.2;
+            messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+        } else if(passengerAge >= discountOverSixtyFive){
+            priceTicket *= 0.4;
+            messageDiscount = 'The discount has been applied to your ticket,' + 'thank you for choosing us:' + ' ' + priceTicket.toFixed(2) + '€';
+        } else{
+            messageDiscount = 'No discount has been applied to your ticket,' + ' ' + priceTicket.toFixed(2) + '€';
+        }
+    
     } else{
-        messageDiscount = 'No discount has been applied to your ticket,' + ' ' + priceTicket.toFixed(2) + '€';
+        messageDiscount = "Invalid data entered, please try again";
     }
+*/
+console.log(numberKm, passengerAge);
+}); 
 
-} else{
-    messageDiscount = "Invalid data entered, please try again";
-}
+
 
 
 
 //print the priceFinal in human format with two decimals
+
 let priceFinal = messageDiscount;
 console.log(priceFinal);
 
-document.getElementById("ticket").innerHTML = priceFinal;
+//document.getElementById("ticket").innerHTML = priceFinal;
